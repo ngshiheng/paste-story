@@ -1,4 +1,4 @@
 export const ALPHABET =
     '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
-export const MAX_KEYS = 10
+export const MAX_KEYS = 1000
