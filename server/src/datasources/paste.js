@@ -1,9 +1,15 @@
+const { ApolloError } = require('apollo-server-cloudflare')
 class PasteAPI {
     async getPaste(uuid) {
+        const paste = await PASTE_DB.get(uuid)
+        if (!paste) {
+            throw new ApolloError('Paste not found')
+        }
+
         return {
             uuid,
-            content: 'Hello world',
-            url: 'https://example.com',
+            content,
+            url: `https://paste.jerrynsh.com/${uuid}`,
         }
     }
 

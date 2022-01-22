@@ -38,9 +38,9 @@ const handleRequest = async (request) => {
         }
 
         return new Response('Not found', { status: 404 })
-    } catch (err) {
+    } catch (error) {
         return new Response(
-            graphQLOptions.debug ? err : 'Something went wrong',
+            graphQLOptions.debug ? error : 'Something went wrong',
             { status: 500 },
         )
     }
