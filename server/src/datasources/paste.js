@@ -27,7 +27,9 @@ class PasteAPI {
     */
     async createPaste(content) {
         try {
-            const uuid = await KEY_DB.list({ limit: 1 })
+            const { keys } = await KEY_DB.list({ limit: 1 })
+
+            const { name: uuid } = keys[0]
 
             await KEY_DB.delete(uuid)
             await PASTE_DB.put(uuid, content, { expirationTtl: 60 * 60 }) // TODO: make expirationTtl based on user input.
