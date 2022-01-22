@@ -1,7 +1,12 @@
 module.exports = {
     Query: {
-        pokemon: async (_source, { id }, { dataSources }) => {
-            return dataSources.pokemonAPI.getPokemon(id)
+        getPaste: async (_source, { uuid }, { dataSources }) => {
+            return dataSources.pasteAPI.getPaste(uuid)
+        },
+    },
+    Mutation: {
+        createPaste: async (_source, { content }, { dataSources }) => {
+            return dataSources.pasteAPI.createPaste(content)
         },
     },
 }

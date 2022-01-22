@@ -3,15 +3,25 @@ const {
     graphqlCloudflare,
 } = require('apollo-server-cloudflare/dist/cloudflareApollo')
 
+const KVCache = require('../kv-cache')
+const PasteAPI = require('../datasources/paste')
+
 const resolvers = require('../resolvers')
 const typeDefs = require('../schema')
+
+const dataSources = () => ({
+    pasteAPI: new PasteAPI(),
+})
+
+const kvCache = { cache: new KVCache() }
 
 const createServer = (graphQLOptions) =>
     new ApolloServer({
         typeDefs,
         resolvers,
         introspection: true,
-        graphQLOptions,
+        dataSources,
+        ...(graphQLOptions.kvCache ? kvCache : {}),
     })
 
 const handler = async (request, graphQLOptions) => {
