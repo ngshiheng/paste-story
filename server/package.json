@@ -1,0 +1,22 @@
+{
+    "name": "server",
+    "private": true,
+    "description": "🔥Lightning-fast, globally distributed Apollo GraphQL server for Paste Story",
+    "version": "1.1.1",
+    "author": "Jerry Ng",
+    "dependencies": {
+        "apollo-datasource-rest": "^3.5.1",
+        "apollo-server-cloudflare": "^3.6.2",
+        "graphql": "^16.2.0"
+    },
+    "devDependencies": {
+        "prettier": "^2.5.1",
+        "webpack": "^5.67.0"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "prettier --write '**/*.{js,css,json,md}'"
+    },
+    "license": "MIT",
+    "main": "src/index.js"
+}

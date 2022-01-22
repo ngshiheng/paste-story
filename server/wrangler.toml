@@ -1,0 +1,29 @@
+name = "server"
+type = "webpack"
+
+account_id = ""
+route = ""
+zone_id = ""
+
+compatibility_date = "2022-01-22"
+webpack_config = "webpack.config.js"
+workers_dev = true
+
+# Enable a kv-namespace to use the KV caching feature
+#
+# kv-namespaces = [
+#   { binding = "WORKERS_GRAPHQL_CACHE", id = "" }
+# ]
+
+[build]
+command = "npm ci && npm run build"
+
+[build.upload]
+format = "modules"
+main = "./src/index.js"
+
+[dev]
+ip = "0.0.0.0"
+local_protocol = "http"
+port = 8787
+upstream_protocol = "https"
