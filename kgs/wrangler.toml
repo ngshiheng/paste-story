@@ -1,0 +1,16 @@
+name = "kgs"
+type = "webpack"
+
+account_id = "19a745c88f8264f29c608584b7e417ab"
+compatibility_date = "2022-01-22"
+route = ""
+workers_dev = false
+zone_id = "e69d9e8116a9787a7c36dc16f6195ae2"
+
+kv_namespaces = [
+  {binding = "PASTE_DB", preview_id = "d7444e0687924555bacb2de504fde18c", id = "7580653883ec446c80281f258d63c724"},
+  {binding = "KEY_DB", preview_id = "dca7f1b0e5154cd3a096bc006e192537", id = "67ba3c199e9543d98922faa353b6bfb3"},
+]
+
+[triggers]
+crons = ["0 0 * * *"]
