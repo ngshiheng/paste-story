@@ -4,9 +4,9 @@ const setCors = require('./utils/setCors')
 
 const graphQLOptions = {
     baseEndpoint: '/',
-    playgroundEndpoint: '/graphql',
+    playgroundEndpoint: '/api/graphql',
     forwardUnmatchedRequestsToOrigin: false,
-    debug: true,
+    debug: false,
     cors: true,
     kvCache: false, // Not applicable. KV caching is only available for external REST data source requests
 }

@@ -15,6 +15,11 @@ workers_dev = true
 #   { binding = "WORKERS_GRAPHQL_CACHE", id = "" }
 # ]
 
+kv_namespaces = [
+  {binding = "PASTE_DB", preview_id = "d7444e0687924555bacb2de504fde18c", id = "7580653883ec446c80281f258d63c724"},
+  {binding = "KEY_DB", preview_id = "dca7f1b0e5154cd3a096bc006e192537", id = "67ba3c199e9543d98922faa353b6bfb3"},
+]
+
 [build]
 command = "npm ci && npm run build"
 
