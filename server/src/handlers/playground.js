@@ -494,7 +494,7 @@ const html = (baseEndpoint) => `
 /*
 Render the Apollo GraphQL Playground.
 */
-const handler = (request) =>
+const handler = () =>
     new Response(html('/'), { headers: { 'Content-Type': 'text/html' } })
 
 module.exports = handler

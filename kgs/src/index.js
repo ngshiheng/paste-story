@@ -6,7 +6,8 @@ Pre-generate a list of unique `urlKey`s.
 
 Ensures that pre-generated `urlKey` list always has `MAX_KEYS` number of keys.
 */
-const handleRequest = async (event) => {
+const handleRequest = async () => {
+    /* eslint-disable no-undef */
     const urlKeys = await KEY_DB.list()
 
     let keysToGenerate = MAX_KEYS - urlKeys.keys.length

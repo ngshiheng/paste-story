@@ -6,6 +6,7 @@ class PasteAPI {
     Throws an error if paste is not found.
     */
     async getPaste(uuid) {
+        /* eslint-disable no-undef */
         const paste = await PASTE_DB.get(uuid)
         if (!paste) {
             throw new ApolloError('Paste not found')
@@ -26,6 +27,7 @@ class PasteAPI {
     UUID is then removed from `KEY_DB` to avoid duplicates.
     */
     async createPaste(content) {
+        /* eslint-disable no-undef */
         try {
             const { keys } = await KEY_DB.list({ limit: 1 })
 
