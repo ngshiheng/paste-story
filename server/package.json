@@ -6,15 +6,25 @@
     "dependencies": {
         "apollo-datasource-rest": "^3.5.1",
         "apollo-server-cloudflare": "^3.6.2",
-        "graphql": "^16.2.0"
+        "graphql": "^16.2.0",
+        "itty-router": "^2.4.10",
+        "itty-router-extras": "^0.4.2"
     },
     "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.2.0",
         "prettier": "^2.5.1",
         "webpack": "^5.67.0"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "format": "prettier --write '**/*.{js,css,json,md}'"
+        "eslint": "eslint . --ext js,ts --ignore-path .eslintignore",
+        "eslint:fix": "eslint --fix . --ext js,ts --ignore-path .eslintignore",
+        "prettier": "prettier \"./**/*.{js,ts,yml,yaml}\" -l --ignore-path .eslintignore",
+        "prettier:fix": "prettier \"./**/*.{js,ts,yml,yaml}\" --write --ignore-path .eslintignore"
     },
     "license": "MIT",
     "main": "src/index.js"

@@ -9,6 +9,7 @@ Keep retrying until a unique `urlKey` which does not exist in both KV (`PASTE_DB
 KGS guarantees that the pre-generated keys are always unique.
 */
 export const generateUniqueUrlKey = async () => {
+    /* eslint-disable no-undef */
     const nanoId = customAlphabet(ALPHABET, 8)
 
     let urlKey = nanoId()
