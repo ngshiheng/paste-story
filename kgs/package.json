@@ -4,11 +4,11 @@
     "description": "A key generation service (KGS) used to pre-generate URL keys for Paste Story.",
     "author": "Jerry Ng <ngshiheng@gmail.com>",
     "dependencies": {
-        "nanoid": "^3.2.0"
+        "nanoid": "3.2.0"
     },
     "devDependencies": {
-        "eslint": "^8.7.0",
-        "prettier": "^2.5.1"
+        "eslint": "8.7.0",
+        "prettier": "2.5.1"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
