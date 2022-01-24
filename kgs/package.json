@@ -8,7 +8,8 @@
     },
     "devDependencies": {
         "eslint": "^8.7.0",
-        "prettier": "^2.5.1"
+        "prettier": "^2.5.1",
+        "semantic-release": "^19.0.2"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,5 +19,14 @@
         "prettier:fix": "prettier \"./**/*.{js,ts,yml,yaml}\" --write --ignore-path .eslintignore"
     },
     "license": "MIT",
-    "main": "src/index.js"
+    "main": "src/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ngshiheng/paste-story.git"
+    },
+    "release": {
+        "branches": [
+            "main"
+        ]
+    }
 }
