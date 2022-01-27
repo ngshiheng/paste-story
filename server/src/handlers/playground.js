@@ -6,7 +6,7 @@ const html = (baseEndpoint) => `
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
     <title>GraphQL Playground</title>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/css/index.css" />
-    <link rel="shortcut icon" href="//cdn.jsdelivr.net/npm/graphql-playground-react/build/favicon.png" />
+    <link rel="shortcut icon" href="https://img.icons8.com/stickers/100/000000/paste.png" />
     <script src="//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/js/middleware.js"></script>
   </head>
 
@@ -495,6 +495,8 @@ const html = (baseEndpoint) => `
 Render the Apollo GraphQL Playground.
 */
 const handler = () =>
-    new Response(html('/'), { headers: { 'Content-Type': 'text/html' } })
+    new Response(html('/__apollo'), {
+        headers: { 'Content-Type': 'text/html' },
+    })
 
 module.exports = handler

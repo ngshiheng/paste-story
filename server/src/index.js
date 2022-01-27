@@ -5,7 +5,9 @@ const playground = require('./handlers/playground')
 
 const router = ThrowableRouter()
 
-router.all('/', apollo)
+router.get('/', playground)
+
+router.all('/__apollo', apollo)
 
 router.all('/graphql', playground)
 

@@ -16,7 +16,6 @@ const dataSources = () => ({
 })
 
 const graphQLOptions = {
-    baseEndpoint: '/',
     playgroundEndpoint: '/graphql',
     forwardUnmatchedRequestsToOrigin: false,
     debug: false,
