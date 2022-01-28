@@ -30,13 +30,22 @@ class PasteAPI {
     async createPaste(content) {
         /* eslint-disable no-undef */
         try {
-            const ONE_DAY = 86400 // seconds
+            if (!content || /^\s*$/.test(content)) {
+                throw new ApolloError('Paste content is empty')
+            }
+
+            const ONE_DAY_FROM_NOW = 86400 // seconds
             const { keys } = await KEY_DB.list({ limit: 1 })
+            if (!keys.length) {
+                throw new ApolloError('Daily limit exceeded')
+            }
 
             const { name: uuid } = keys[0]
 
             await KEY_DB.delete(uuid)
-            await PASTE_DB.put(uuid, content, { expirationTtl: ONE_DAY })
+            await PASTE_DB.put(uuid, content, {
+                expirationTtl: ONE_DAY_FROM_NOW,
+            })
 
             return {
                 uuid,
@@ -44,7 +53,7 @@ class PasteAPI {
                 url: `https://paste.jerrynsh.com/${uuid}`,
             }
         } catch (error) {
-            throw new ApolloError('Failed to create paste')
+            throw new ApolloError(`Failed to create paste. ${error.message}`)
         }
     }
 }

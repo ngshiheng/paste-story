@@ -50,13 +50,13 @@ const html = () => `
                     \`,
                 )
                 
-                const data = response.data
-                
-                if (data) {
+                if (response.data) {
                     // Redirect to the new paste
-                    window.location.href = "/" + data.createPaste.uuid
+                    window.location.href = "/" + response.data.createPaste.uuid
+                } else if (response.errors) {
+                    alert(\`⚠️ \${response.errors[0].message}\`)
                 } else {
-                    alert('⛔ Daily Limit Exceeded')
+                    alert('⛔ Unexpected error')
                 }
             }
             
