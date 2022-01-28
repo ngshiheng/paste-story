@@ -1,15 +1,15 @@
-const { ThrowableRouter, missing } = require('itty-router-extras')
-
-const apollo = require('./handlers/apollo')
-const playground = require('./handlers/playground')
+import { missing, ThrowableRouter } from 'itty-router-extras'
+import apollo from './handlers/apollo'
+import index from './handlers/index'
+import playground from './handlers/playground'
 
 const router = ThrowableRouter()
 
-router.get('/', playground)
-
-router.all('/__apollo', apollo)
+router.get('/', index)
 
 router.all('/graphql', playground)
+
+router.all('/__graphql', apollo)
 
 router.all('*', () => missing('Not found'))
 

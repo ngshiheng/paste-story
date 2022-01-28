@@ -1,4 +1,5 @@
 const { ApolloError } = require('apollo-server-cloudflare')
+const { ONE_DAY } = require('../utils/const')
 class PasteAPI {
     /*
     Get a paste by its UUID (urlKey) from `PASTE_DB`.
@@ -34,7 +35,7 @@ class PasteAPI {
             const { name: uuid } = keys[0]
 
             await KEY_DB.delete(uuid)
-            await PASTE_DB.put(uuid, content, { expirationTtl: 60 * 60 }) // TODO: make expirationTtl based on user input.
+            await PASTE_DB.put(uuid, content, { expirationTtl: ONE_DAY })
 
             return {
                 uuid,
