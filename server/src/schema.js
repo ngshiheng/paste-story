@@ -4,7 +4,8 @@ module.exports = gql`
     type Paste {
         uuid: ID!
         content: String!
-        url: String!
+        createdOn: String!
+        expireAt: String!
     }
 
     type Query {

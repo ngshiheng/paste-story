@@ -1,5 +1,6 @@
 const { ApolloError } = require('apollo-server-cloudflare')
 
+const ONE_DAY_FROM_NOW = 86400 // seconds
 class PasteAPI {
     /*
     Get a paste by its UUID (urlKey) from `PASTE_DB`.
@@ -8,15 +9,18 @@ class PasteAPI {
     */
     async getPaste(uuid) {
         /* eslint-disable no-undef */
-        const paste = await PASTE_DB.get(uuid)
-        if (!paste) {
+        const { value: content, metadata } = await PASTE_DB.getWithMetadata(
+            uuid,
+        )
+        if (!content) {
             throw new ApolloError('Paste not found')
         }
 
         return {
             uuid,
-            content: paste,
-            url: `https://paste.jerrynsh.com/${uuid}`,
+            content,
+            createdOn: metadata.createdOn,
+            expireAt: metadata.expireAt,
         }
     }
 
@@ -30,27 +34,28 @@ class PasteAPI {
     async createPaste(content) {
         /* eslint-disable no-undef */
         try {
-            if (!content || /^\s*$/.test(content)) {
-                throw new ApolloError('Paste content is empty')
-            }
-
-            const ONE_DAY_FROM_NOW = 86400 // seconds
             const { keys } = await KEY_DB.list({ limit: 1 })
             if (!keys.length) {
-                throw new ApolloError('Daily limit exceeded')
+                throw new ApolloError('Ran out of keys')
             }
 
             const { name: uuid } = keys[0]
+            const createdOn = new Date().toISOString()
+            const expireAt = new Date(
+                Date.now() + ONE_DAY_FROM_NOW * 1000,
+            ).toISOString()
 
-            await KEY_DB.delete(uuid)
+            await KEY_DB.delete(uuid) // Remove key from KGS
             await PASTE_DB.put(uuid, content, {
+                metadata: { createdOn, expireAt },
                 expirationTtl: ONE_DAY_FROM_NOW,
             })
 
             return {
                 uuid,
                 content,
-                url: `https://paste.jerrynsh.com/${uuid}`,
+                createdOn,
+                expireAt,
             }
         } catch (error) {
             throw new ApolloError(`Failed to create paste. ${error.message}`)
