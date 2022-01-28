@@ -22,20 +22,19 @@ const html = (content) => `
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
             }
         </style>
-        
         <script>
             const copyTextAreaToClipboard = () => {
-                let aux = document.createElement('input')
+                let codeToBeCopied = document.getElementById('content').value
+                let emptyArea = document.createElement('TEXTAREA')
                 
-                aux.setAttribute('value', document.getElementById('content').value)
-                
-                document.body.appendChild(aux)
-            
-                aux.select()
-            
+                emptyArea.innerHTML = codeToBeCopied
+                const parentElement = document.getElementById('content-form')
+                parentElement.appendChild(emptyArea)
+             
+                emptyArea.select()
                 document.execCommand('copy')
-            
-                document.body.removeChild(aux)
+             
+                parentElement.removeChild(emptyArea)
             }
         </script>
     </head>
@@ -52,8 +51,7 @@ const html = (content) => `
                                     </p>
                                     <p>Copy the paste content before it expires (within 24 hours).
                                     </p>
-                                    
-                                    <div class="form-group">
+                                    <div id="content-form" class="form-group">
                                         <textarea id="content" style="height: 1000px" class="textarea" placeholder="e.g. Hello, 世界" readonly>${content}</textarea>
                                     </div>
                                     <div class="form-group text-center">
