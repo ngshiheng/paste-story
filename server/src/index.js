@@ -1,8 +1,8 @@
-import { missing, ThrowableRouter, withParams } from 'itty-router-extras'
-import apollo from './handlers/apollo'
-import index from './handlers/index'
-import paste from './handlers/paste'
-import playground from './handlers/playground'
+const { missing, ThrowableRouter, withParams } = require('itty-router-extras')
+const apollo = require('./handlers/apollo')
+const index = require('./handlers/index')
+const paste = require('./handlers/paste')
+const playground = require('./handlers/playground')
 
 const router = ThrowableRouter()
 

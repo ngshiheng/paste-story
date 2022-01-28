@@ -1,5 +1,5 @@
 const { ApolloError } = require('apollo-server-cloudflare')
-const { ONE_DAY } = require('../utils/const')
+
 class PasteAPI {
     /*
     Get a paste by its UUID (urlKey) from `PASTE_DB`.
@@ -30,6 +30,7 @@ class PasteAPI {
     async createPaste(content) {
         /* eslint-disable no-undef */
         try {
+            const ONE_DAY = 86400 // seconds
             const { keys } = await KEY_DB.list({ limit: 1 })
 
             const { name: uuid } = keys[0]
