@@ -50,7 +50,7 @@ const html = (content) => `
                                     <h1 class="title">Paste story</h1>
                                     <p>A <a href="https://pastebin.mozilla.org/">Pastebin</a> POC built using <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> and <a href="https://www.cloudflare.com/products/workers-kv/">KV</a>.
                                     </p>
-                                    <p>Copy the content out before it expires (within 24 hours)!
+                                    <p>Copy the paste content before it expires (within 24 hours).
                                     </p>
                                     
                                     <div class="form-group">
@@ -59,7 +59,15 @@ const html = (content) => `
                                     <div class="form-group text-center">
                                         <button class="button is-medium is-fullwidth is-info" onclick="copyTextAreaToClipboard()">Copy This</button>
                                     </div>
-                                    
+                                    <div class="column is-8 is-offset-2">
+                                        <nav class="level">
+                                            <div class="level-right">
+                                                <small class="level-item" style="color: var(--textLight)">
+                                                &copy; Paste Story by&nbsp<a href="https://jerrynsh.com/">Jerry Ng</a>. All Rights Reserved.
+                                                </small>
+                                            </div>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
                         </div>

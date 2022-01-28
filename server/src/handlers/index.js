@@ -73,7 +73,7 @@ const html = () => `
                                     <h1 class="title">Paste story</h1>
                                     <p>A <a href="https://pastebin.mozilla.org/">Pastebin</a> POC built using <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> and <a href="https://www.cloudflare.com/products/workers-kv/">KV</a>.
                                     </p>
-                                    <p>Check out the <a href="https://github.com/ngshiheng/paste-story">source code</a>!
+                                    <p>Check out the <a href="https://github.com/ngshiheng/paste-story">source code</a>.
                                     </p>
                                     <form onsubmit="createPaste(event)">
                                         <div class="form-group">
@@ -83,6 +83,15 @@ const html = () => `
                                             <button type="submit" class="button is-medium is-fullwidth is-primary">Create New Paste</button>
                                         </div>
                                     </form>
+                                    <div class="column is-8 is-offset-2">
+                                        <nav class="level">
+                                            <div class="level-right">
+                                                <small class="level-item" style="color: var(--textLight)">
+                                                &copy; Paste Story by&nbsp<a href="https://jerrynsh.com/">Jerry Ng</a>. All Rights Reserved.
+                                                </small>
+                                            </div>
+                                        </nav>
+                                    </div>
                                 </div>
                             </div>
                         </div>
