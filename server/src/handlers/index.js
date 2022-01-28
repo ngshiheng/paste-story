@@ -65,9 +65,10 @@ const html = () => `
                             <div class="column is-8 is-offset-2">
                                 <div class="content is-medium">
                                     <h1 class="title">Paste story</h1>
-                                    <p>A Pastebin POC built using Cloudflare Worker.
+                                    <p>A <a href="https://pastebin.mozilla.org/">Pastebin</a> POC built using <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> and <a href="https://www.cloudflare.com/products/workers-kv/">KV</a>.
                                     </p>
-                                    <p>“Why Pastebin?”. Well, sending ≥ 50 lines long block of text (code) over chat sucks!</p>
+                                    <p>Check out the <a href="https://github.com/ngshiheng/paste-story">source code</a>!
+                                    </p>
                                     <form onsubmit="createPaste(event)">
                                         <div class="form-group">
                                             <textarea id="content" style="height: 1000px" class="textarea" placeholder="e.g. Hello, 世界"></textarea>

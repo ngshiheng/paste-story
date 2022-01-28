@@ -1,18 +1,88 @@
 const { missing } = require('itty-router-extras')
 
-const handler = async ({ params }) => {
-    /* eslint-disable no-undef */
-    const { key } = decodeURIComponent(params.text)
+const html = (content) => `
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Paste Story</title>
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.3/css/bulma.min.css" />
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/bulma-divider.min.css">
+        <link rel="shortcut icon" href="https://img.icons8.com/stickers/100/000000/paste.png" />
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+            body {
+            font-family: 'Nunito', sans-serif;};
+            nav.navbar {
+            height: 6rem !important;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
+            }
+        </style>
+        
+        <script>
+            const copyTextAreaToClipboard = () => {
+                let aux = document.createElement('input')
+                
+                aux.setAttribute('value', document.getElementById('content').value)
+                
+                document.body.appendChild(aux)
+            
+                aux.select()
+            
+                document.execCommand('copy')
+            
+                document.body.removeChild(aux)
+            }
+        </script>
+    </head>
+    <body>
+        <section class="hero ">
+            <div class="hero-body">
+                <div class="container">
+                    <section class="section">
+                        <div class="columns">
+                            <div class="column is-8 is-offset-2">
+                                <div class="content is-medium">
+                                    <h1 class="title">Paste story</h1>
+                                    <p>A <a href="https://pastebin.mozilla.org/">Pastebin</a> POC built using <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> and <a href="https://www.cloudflare.com/products/workers-kv/">KV</a>.
+                                    </p>
+                                    <p>Copy the content out before it expires (within 24 hours)!
+                                    </p>
+                                    
+                                    <div class="form-group">
+                                        <textarea id="content" style="height: 1000px" class="textarea" placeholder="e.g. Hello, 世界" readonly>${content}</textarea>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button class="button is-medium is-fullwidth is-info" onclick="copyTextAreaToClipboard()">Copy This</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="is-divider"></div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
+`
 
-    const content = await PASTE_DB.get(key)
+const handler = async ({ uuid }) => {
+    /* eslint-disable no-undef */
+    const content = await PASTE_DB.get(uuid)
 
     if (content) {
-        return new Response(html('/__apollo'), {
+        return new Response(html(content), {
             headers: { 'Content-Type': 'text/html' },
         })
     }
 
-    return missing('Invalid link')
+    return missing('Invalid paste link')
 }
 
 module.exports = handler
