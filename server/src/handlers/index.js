@@ -45,13 +45,19 @@ const html = () => `
                             createPaste(content: """\${pasteContent}""") {
                                 uuid
                                 content
-                                url
                             }
                         }
                     \`,
                 )
-            
-                console.log(response)
+                
+                const data = response.data
+                
+                if (data) {
+                    // Redirect to the new paste
+                    window.location.href = "/" + data.createPaste.uuid
+                } else {
+                    alert('⛔ Daily Limit Exceeded')
+                }
             }
             
         </script>
