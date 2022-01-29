@@ -71,9 +71,9 @@ const html = () => `
                             <div class="column is-8 is-offset-2">
                                 <div class="content is-medium">
                                     <h1 class="title">Paste story</h1>
-                                    <p>A <a href="https://pastebin.mozilla.org/">Pastebin</a> POC built using <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> and <a href="https://www.cloudflare.com/products/workers-kv/">KV</a>.
+                                    <p>💡 A <a href="https://pastebin.mozilla.org/">Pastebin</a> POC built using <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> and <a href="https://www.cloudflare.com/products/workers-kv/">KV</a>.
                                     </p>
-                                    <p>Check out the <a href="https://github.com/ngshiheng/paste-story">source code</a>.
+                                    <p>✨ You may find the <a href="https://github.com/ngshiheng/paste-story">source code here</a>.
                                     </p>
                                     <form onsubmit="createPaste(event)">
                                         <div class="form-group">

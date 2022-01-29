@@ -1,4 +1,5 @@
 const { ApolloError } = require('apollo-server-cloudflare')
+const moment = require('moment')
 
 const ONE_DAY_FROM_NOW = 86400 // seconds
 class PasteAPI {
@@ -38,12 +39,10 @@ class PasteAPI {
             if (!keys.length) {
                 throw new ApolloError('Ran out of keys')
             }
-
             const { name: uuid } = keys[0]
-            const createdOn = new Date().toISOString()
-            const expireAt = new Date(
-                Date.now() + ONE_DAY_FROM_NOW * 1000,
-            ).toISOString()
+
+            const createdOn = moment().format()
+            const expireAt = moment().add(ONE_DAY_FROM_NOW, 'seconds').format()
 
             await KEY_DB.delete(uuid) // Remove key from KGS
             await PASTE_DB.put(uuid, content, {

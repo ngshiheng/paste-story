@@ -1,6 +1,7 @@
 const { missing } = require('itty-router-extras')
+const moment = require('moment')
 
-const html = (content) => `
+const html = (content, expiringIn) => `
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,9 +48,11 @@ const html = (content) => `
                             <div class="column is-8 is-offset-2">
                                 <div class="content is-medium">
                                     <h1 class="title">Paste story</h1>
-                                    <p>A <a href="https://pastebin.mozilla.org/">Pastebin</a> POC built using <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> and <a href="https://www.cloudflare.com/products/workers-kv/">KV</a>.
+                                    <p>💡 A <a href="https://pastebin.mozilla.org/">Pastebin</a> POC built using <a href="https://workers.cloudflare.com/">Cloudflare Worker</a> and <a href="https://www.cloudflare.com/products/workers-kv/">KV</a>.
                                     </p>
-                                    <p>Copy the paste content before it expires (within 24 hours).
+                                    <p>✂️ Copy the paste content before it expires <b>${expiringIn}</b>.
+                                    </p>
+                                    <p>🌱 Oh, you can also <a href="/">create a new paste</a>.
                                     </p>
                                     <div id="content-form" class="form-group">
                                         <textarea id="content" style="height: 1000px" class="textarea" placeholder="e.g. Hello, 世界" readonly>${content}</textarea>
@@ -80,15 +83,16 @@ const html = (content) => `
 
 const handler = async ({ uuid }) => {
     /* eslint-disable no-undef */
-    const content = await PASTE_DB.get(uuid)
-
-    if (content) {
-        return new Response(html(content), {
-            headers: { 'Content-Type': 'text/html' },
-        })
+    const { value: content, metadata } = await PASTE_DB.getWithMetadata(uuid)
+    if (!content) {
+        return missing('Invalid paste link')
     }
 
-    return missing('Invalid paste link')
+    const expiringIn = moment(metadata.expireAt).from(metadata.createdOn)
+
+    return new Response(html(content, expiringIn), {
+        headers: { 'Content-Type': 'text/html' },
+    })
 }
 
 module.exports = handler
