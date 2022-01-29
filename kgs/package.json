@@ -1,7 +1,7 @@
 {
     "name": "kgs",
     "version": "1.0.0",
-    "description": "A key generation service (KGS) used to pre-generate URL keys for Paste Story.",
+    "description": "A key generation service (KGS) that pre-generates `uuid` keys for Paste Story.",
     "author": "Jerry Ng <ngshiheng@gmail.com>",
     "dependencies": {
         "nanoid": "3.2.0"
