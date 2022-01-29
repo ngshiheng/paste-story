@@ -6,8 +6,8 @@ Paste Story is a [Pastebin](https://pastebin.com/) clone — a web service that 
 
 ## Requirements
 
--   Get a [Cloudflare](https://www.cloudflare.com/) account
--   Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment
+-   Get a [Cloudflare](https://www.cloudflare.com/) account.
+-   Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment.
 
 ## Setup
 
@@ -15,9 +15,7 @@ Check out Steps 1 to 3 of this [Get Started Guide](https://developers.cloudflare
 
 ### Installation
 
-```sh
-npm ci
-```
+See `README.md` of the respective service.
 
 ### Creating KV
 
@@ -33,19 +31,9 @@ wrangler kv:namespace create "PASTE_DB" --preview
 wrangler kv:namespace create "KEY_DB" --preview
 ```
 
-For creating these KV namespaces, remember to update your [`wrangler.toml`](./wrangler.toml) file to include the namespace bindings accordingly.
+For creating these KV namespaces, remember to update your [`wrangler.toml`](./wrangler.toml) files of the respective service to include the namespace bindings accordingly.
 
-Do update your `account_id` accordingly while you are at it.
-
-## Usage
-
-To try out the project locally, simply run `wrangler dev`.
-
-## Deployment
-
-To publish any new changes to your Cloudflare Worker, run `wrangler publish`
-
-Before publishing your code you need to edit `wrangler.toml` file and add your Cloudflare `account_id` - more information about configuring and publishing your code can be found [in the documentation](https://developers.cloudflare.com/workers/learning/getting-started#7-configure-your-project-for-deployment).
+Feel free to update your `account_id` accordingly while you are at it.
 
 ## Contributing
 
@@ -54,8 +42,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ### Steps
 
 1. Fork this
-2. Create your feature branch (`git checkout -b alex/fooBar`)
+2. Create your feature branch (`git checkout -b tom/fooBar`)
 3. Please make sure you have installed the `pre-commit` hook and make sure it passes all the lint and format check
 4. Commit your changes (`git commit -am 'feat: add some fooBar'`, make sure that your commits are [semantic](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716))
-5. Push to the branch (`git push origin alex/fooBar`)
+5. Push to the branch (`git push origin tom/fooBar`)
 6. Create a new Pull Request
