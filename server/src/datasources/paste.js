@@ -4,7 +4,7 @@ const moment = require('moment')
 const ONE_DAY_FROM_NOW = 86400 // seconds
 class PasteAPI {
     /*
-    Get a paste by its UUID (urlKey) from `PASTE_DB`.
+    Get a paste by its `uuid` key from `PASTE_DB`.
 
     Throws an error if paste is not found.
     */
@@ -28,7 +28,7 @@ class PasteAPI {
     /*
     Create a new paste in `PASTE_DB`.
     
-    Fetch a new UUID (urlKey) from `KEY_DB`.
+    Fetch a new `uuid` key from `KEY_DB`.
 
     UUID is then removed from `KEY_DB` to avoid duplicates.
     */
