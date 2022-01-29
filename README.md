@@ -1,8 +1,10 @@
 <h1 align="center"><strong>Paste Story</strong></h1>
 
-Paste Story is a [Pastebin](https://pastebin.com/) clone — a web service that allows users to share text content through a link.
+Paste Story is a [Pastebin](https://pastebin.com/) clone — a web service that allows users to share text content through a link known as 'pastes'.
 
-“Why Pastebin?” you might ask. Well, sending ≥ 50 lines long block of text (code) within a chat app isn’t exactly the best way to share.
+“Why Pastebin?” you might ask. Well, sending 50 lines long block of text through a chat app isn’t exactly the best way to communicate.
+
+[Read more...](https://jerrynsh.com/how-to-build-a-pastebin-clone-for-free/)
 
 ## Requirements
 
