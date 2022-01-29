@@ -1,5 +1,5 @@
-import { MAX_KEYS } from '../utils/constants'
-import { generateUUIDKey } from '../utils/keyGenerator'
+import { MAX_KEYS } from './utils/constants'
+import { generateUUIDKey } from './utils/keyGenerator'
 
 /*
 Pre-generate a list of unique `uuid`s.
@@ -13,7 +13,7 @@ const handleRequest = async () => {
     let keysToGenerate = MAX_KEYS - existingUUIDs.keys.length
 
     console.log(`Existing # of keys: ${existingUUIDs.keys.length}.`)
-    console.log(`Generating # of keys: ${keysToGenerate}.`)
+    console.log(`Estimated # of keys to generate: ${keysToGenerate}.`)
 
     while (keysToGenerate != 0) {
         const newKey = await generateUUIDKey()
