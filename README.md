@@ -33,7 +33,7 @@ wrangler kv:namespace create "PASTE_DB" --preview
 wrangler kv:namespace create "KEY_DB" --preview
 ```
 
-For creating these KV namespaces, remember to update your [`wrangler.toml`](./wrangler.toml) files of the respective service to include the namespace bindings accordingly.
+For creating these KV namespaces, remember to update your `wrangler.toml` files of the respective service to include the namespace bindings accordingly.
 
 Feel free to update your `account_id` accordingly while you are at it.
 
