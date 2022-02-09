@@ -5,7 +5,7 @@
     "author": "Jerry Ng <ngshiheng@gmail.com>",
     "dependencies": {
         "apollo-datasource-rest": "3.5.1",
-        "apollo-server-cloudflare": "3.6.2",
+        "apollo-server-cloudflare": "3.6.3",
         "graphql": "16.3.0",
         "itty-router": "2.4.10",
         "itty-router-extras": "0.4.2",
