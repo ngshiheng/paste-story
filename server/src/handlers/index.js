@@ -20,6 +20,7 @@ const html = () => `
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06) !important;
             }
         </style>
+        <script async defer data-website-id="eb2672e1-d7fe-4395-9460-5f3aefe9c8aa" src="https://umami.jerrynsh.com/umami.js"></script>
         <script>
             const sendMutation = (query) => {
                 return fetch('/__graphql', {

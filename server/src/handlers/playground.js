@@ -8,6 +8,7 @@ const html = (baseEndpoint) => `
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/css/index.css" />
         <link rel="shortcut icon" href="https://img.icons8.com/stickers/100/000000/paste.png" />
         <script src="//cdn.jsdelivr.net/npm/graphql-playground-react/build/static/js/middleware.js"></script>
+        <script async defer data-website-id="eb2672e1-d7fe-4395-9460-5f3aefe9c8aa" src="https://umami.jerrynsh.com/umami.js"></script>
     </head>
     <body>
         <style type="text/css">
