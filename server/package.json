@@ -7,7 +7,7 @@
         "apollo-datasource-rest": "3.5.1",
         "apollo-server-cloudflare": "3.6.3",
         "graphql": "16.3.0",
-        "itty-router": "2.4.10",
+        "itty-router": "2.5.1",
         "itty-router-extras": "0.4.2",
         "moment": "2.29.1"
     },
