@@ -76,6 +76,8 @@ const html = () => `
                                     </p>
                                     <p>✨ You may find the <a href="https://github.com/ngshiheng/paste-story">source code here</a>.
                                     </p>
+                                    <p>📚 Read how to create and host this Pastebin clone for free <a href="https://jerrynsh.com/how-to-build-a-pastebin-clone-for-free/">here</a>.
+                                    </p> 
                                     <form onsubmit="createPaste(event)">
                                         <div class="form-group">
                                             <textarea id="content" style="height: 1000px" class="textarea" placeholder="e.g. Hello, 世界"></textarea>
