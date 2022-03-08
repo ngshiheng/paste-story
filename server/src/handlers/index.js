@@ -22,11 +22,23 @@ const html = () => `
         </style>
         <script async defer data-website-id="eb2672e1-d7fe-4395-9460-5f3aefe9c8aa" src="https://umami.jerrynsh.com/umami.js"></script>
         <script>
-            const sendMutation = (query) => {
+            const sendMutation = () => {
+                const content = document.getElementById('content').value
+
                 return fetch('/__graphql', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query }),
+                    body: JSON.stringify({
+                        query: \`
+                        mutation createPaste($content: String!) {
+                            createPaste(content: $content) {
+                                uuid
+                                content
+                            }
+                        }
+                        \`,
+                        variables: { content },
+                    }),
                 })
                     .then((res) => {
                         if (!res.ok) throw new Error(res.statusText)
@@ -38,18 +50,7 @@ const html = () => `
             const createPaste = async (e) => {
                 e.preventDefault()
             
-                const pasteContent = document.getElementById('content').value
-            
-                const response = await sendMutation(
-                    \`
-                        mutation {
-                            createPaste(content: """\${pasteContent}""") {
-                                uuid
-                                content
-                            }
-                        }
-                    \`,
-                )
+                const response = await sendMutation()
                 
                 if (response.data) {
                     // Redirect to the new paste
@@ -77,7 +78,7 @@ const html = () => `
                                     <p>✨ You may find the <a href="https://github.com/ngshiheng/paste-story">source code here</a>.
                                     </p>
                                     <p>📚 Read how to create and host this Pastebin clone for free <a href="https://jerrynsh.com/how-to-build-a-pastebin-clone-for-free/">here</a>.
-                                    </p> 
+                                    </p>
                                     <form onsubmit="createPaste(event)">
                                         <div class="form-group">
                                             <textarea id="content" style="height: 1000px" class="textarea" placeholder="e.g. Hello, 世界"></textarea>
