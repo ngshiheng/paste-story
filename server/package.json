@@ -4,8 +4,8 @@
     "description": "A Apollo GraphQL API server for Paste Story.",
     "author": "Jerry Ng <ngshiheng@gmail.com>",
     "dependencies": {
-        "apollo-datasource-rest": "3.5.1",
-        "apollo-server-cloudflare": "3.6.4",
+        "apollo-datasource-rest": "3.5.2",
+        "apollo-server-cloudflare": "3.6.7",
         "graphql": "16.3.0",
         "itty-router": "2.5.2",
         "itty-router-extras": "0.4.2",
