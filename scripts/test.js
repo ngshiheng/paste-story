@@ -39,7 +39,7 @@ export default function () {
         ),
     });
 
-    sleep(1);
+    sleep(1); // second
   });
 
   group("visit graphql endpoint", function () {
@@ -57,6 +57,8 @@ export default function () {
         return uuid.length === 8 && data.createPaste.content === DUMMY_CONTENT;
       },
     });
+
+    sleep(1); // second
   });
 
   group("visit paste url", function () {
@@ -66,5 +68,7 @@ export default function () {
       "is status 200": (r) => r.status === 200,
       "verify paste content": (r) => r.body.includes(DUMMY_CONTENT),
     });
+
+    sleep(1); // second
   });
 }
