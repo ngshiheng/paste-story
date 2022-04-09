@@ -8,8 +8,8 @@ Paste Story is a [Pastebin](https://pastebin.com/) clone — a web service that 
 
 ## Requirements
 
--   Get a [Cloudflare](https://www.cloudflare.com/) account.
--   Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment.
+- Get a [Cloudflare](https://www.cloudflare.com/) account.
+- Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment.
 
 ## Setup
 
@@ -17,7 +17,7 @@ Check out Steps 1 to 3 of this [Get Started Guide](https://developers.cloudflare
 
 ### Installation
 
-See `README.md` of the respective service.
+See `README.md` of the respective service. Alternatively, you can just run `make install`.
 
 ### Creating KV
 
