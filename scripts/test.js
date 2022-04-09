@@ -2,6 +2,8 @@ import http from "k6/http";
 import { check, group, sleep } from "k6";
 import { randomString } from "https://jslib.k6.io/k6-utils/1.2.0/index.js";
 
+const BASE_URL = "https://paste.jerrynsh.com";
+
 export const options = {
   duration: "1m",
   vus: 1,
@@ -11,23 +13,20 @@ export const options = {
   },
 };
 
-const BASE_URL = "https://paste.jerrynsh.com";
-const DUMMY_CONTENT = `Hello, ${randomString(9)}. I'm load testing with k6! 👋`;
-
-let uuid;
-
-const mutation = `
-mutation createPaste {
-  createPaste(content: "${DUMMY_CONTENT}") {
-    uuid
-    content
-    createdOn
-    expireAt
-  }
-}`;
-const headers = { "Content-Type": "application/json" };
-
 export default function () {
+  let uuid;
+  const dummy_content = `Hello, ${randomString(9)}. I'm load testing with k6! 👋`;
+  const mutation = `
+  mutation createPaste {
+    createPaste(content: "${dummy_content}") {
+      uuid
+      content
+      createdOn
+      expireAt
+    }
+  }`;
+  const headers = { "Content-Type": "application/json" };
+
   group("visit main page", function () {
     const res = http.get(BASE_URL);
 
@@ -54,7 +53,7 @@ export default function () {
       "verify createPaste mutation": (r) => {
         const { data } = JSON.parse(r.body);
         uuid = data.createPaste.uuid;
-        return uuid.length === 8 && data.createPaste.content === DUMMY_CONTENT;
+        return uuid.length === 8 && data.createPaste.content === dummy_content;
       },
     });
 
@@ -66,7 +65,7 @@ export default function () {
 
     check(res, {
       "is status 200": (r) => r.status === 200,
-      "verify paste content": (r) => r.body.includes(DUMMY_CONTENT),
+      "verify paste content": (r) => r.body.includes(dummy_content),
     });
 
     sleep(1); // second
