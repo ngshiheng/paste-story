@@ -30,5 +30,11 @@
         "prettier:fix": "prettier \"./**/*.{js,ts,yml,yaml}\" --write --ignore-path .eslintignore"
     },
     "license": "MIT",
-    "main": "src/index.js"
+    "main": "src/index.js",
+    "release": {
+        "extends": "semantic-release-monorepo",
+        "branches": [
+            "main"
+        ]
+    }
 }
