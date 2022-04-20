@@ -7,10 +7,10 @@
         "nanoid": "^3.3.2"
     },
     "devDependencies": {
-        "eslint": "^8.13.0",
-        "prettier": "^2.6.2",
-        "semantic-release": "^19.0.2",
-        "semantic-release-monorepo": "^7.0.5"
+        "eslint": "8.13.0",
+        "prettier": "2.6.2",
+        "semantic-release": "19.0.2",
+        "semantic-release-monorepo": "7.0.5"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
