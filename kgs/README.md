@@ -2,8 +2,8 @@
 
 ## Requirements
 
--   Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment.
--   Install [Miniflare](https://miniflare.dev/cli.html) CLI for local development work.
+-   [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment
+-   [Miniflare](https://miniflare.dev/cli.html) CLI for testing cron trigger locally
 
 ## Installation
 
@@ -27,7 +27,7 @@ Note that no actual keys will be created on your actual Cloudflare KV namespaces
 
 ## Deployment
 
-The deployment of this project is done using GitHub Actions CI/CD. For more details, check out [kgs.yml](../.github/workflows/kgs.yml)
+The deployment of this project is done using GitHub Actions CI/CD. For more details, check out [kgs.yml](../.github/workflows/kgs.yml).
 
 Alternatively, to publish any new changes to your Cloudflare Worker, run `wrangler publish`.
 

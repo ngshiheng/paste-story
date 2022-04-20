@@ -2,7 +2,7 @@
 
 ## Requirements
 
--   Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment.
+-   [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment
 
 ## Installation
 
@@ -20,7 +20,7 @@ wrangler dev
 
 ## Deployment
 
-The deployment of this project is done using GitHub Actions CI/CD. For more details, check out [server.yml](../.github/workflows/server.yml)
+The deployment of this project is done using GitHub Actions CI/CD. For more details, check out [server.yml](../.github/workflows/server.yml).
 
 Alternatively, to publish any new changes to your Cloudflare Worker, run `wrangler publish`.
 

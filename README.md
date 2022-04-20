@@ -8,8 +8,8 @@ Paste Story is a [Pastebin](https://pastebin.com/) clone — a web service that 
 
 ## Requirements
 
-- Get a [Cloudflare](https://www.cloudflare.com/) account.
-- Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment.
+- Get a [Cloudflare](https://www.cloudflare.com/) account
+- Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment
 
 ## Setup
 
@@ -37,8 +37,6 @@ wrangler kv:namespace create "KEY_DB" --preview
 ```
 
 For creating these KV namespaces, remember to update your `wrangler.toml` files of the respective service to include the namespace bindings accordingly.
-
-Feel free to update your `account_id` accordingly while you are at it.
 
 ### CI/CD
 
