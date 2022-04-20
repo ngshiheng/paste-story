@@ -17,6 +17,7 @@
             "prCreation": "immediate"
         }
     ],
+    "rangeStrategy": "replace",
     "rebaseWhen": "behind-base-branch",
     "schedule": ["after 8pm every weekday", "every weekend"],
     "timezone": "Asia/Singapore"
