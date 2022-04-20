@@ -13,11 +13,14 @@ Paste Story is a [Pastebin](https://pastebin.com/) clone — a web service that 
 
 ## Setup
 
-Check out Steps 1 to 3 of this [Get Started Guide](https://developers.cloudflare.com/workers/get-started/guide).
+Check out Steps 1 to 3 of this [Get Started Guide](https://developers.cloudflare.com/workers/get-started/guide) to setup a Cloudflare account.
 
 ### Installation
 
-See `README.md` of the respective service. Alternatively, you can just run `make install`.
+Run `make install`. For more details, check out:
+
+- `server/`'s [README.md](./server/README.md)
+- `kgs/`'s [README.md](./kgs/README.md)
 
 ### Creating KV
 
@@ -37,6 +40,13 @@ For creating these KV namespaces, remember to update your `wrangler.toml` files 
 
 Feel free to update your `account_id` accordingly while you are at it.
 
+### CI/CD
+
+Create and add the following under the repository secrets:
+
+- [`NPM_TOKEN`](https://docs.npmjs.com/creating-and-viewing-access-tokens)
+- [`CF_API_TOKEN`](https://developers.cloudflare.com/api/tokens/create/)
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
@@ -45,7 +55,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 1. Fork this
 2. Create your feature branch (`git checkout -b tom/fooBar`)
-3. Please make sure you have installed the `pre-commit` hook and make sure it passes all the lint and format check
+3. Code
 4. Commit your changes (`git commit -am 'feat: add some fooBar'`, make sure that your commits are [semantic](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716))
 5. Push to the branch (`git push origin tom/fooBar`)
 6. Create a new Pull Request
