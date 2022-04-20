@@ -32,6 +32,7 @@
     "license": "MIT",
     "main": "src/index.js",
     "release": {
+        "private": true,
         "extends": "semantic-release-monorepo",
         "branches": [
             "main"
