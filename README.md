@@ -6,10 +6,22 @@ Paste Story is a [Pastebin](https://pastebin.com/) clone — a web service that 
 
 [Read more...](https://jerrynsh.com/how-to-build-a-pastebin-clone-for-free/)
 
+## Overview
+
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Setup](#setup)
+  - [Installation](#installation)
+  - [Usage & Deployment](#usage--deployment)
+  - [Creating KV](#creating-kv)
+- [Optional: CI/CD](#optional-cicd)
+- [Contributing](#contributing)
+  - [Steps](#steps)
+
 ## Requirements
 
-- Get a [Cloudflare](https://www.cloudflare.com/) account
-- Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment
+-   Get a [Cloudflare](https://www.cloudflare.com/) account
+-   Install [Wrangler](https://github.com/cloudflare/wrangler#installation) CLI for Cloudflare Workers deployment
 
 ## Setup
 
@@ -17,10 +29,14 @@ Check out Steps 1 to 3 of this [Get Started Guide](https://developers.cloudflare
 
 ### Installation
 
-Run `make install`. For more details, check out:
+Run `make install`.
 
-- `server/`'s [README.md](./server/README.md)
-- `kgs/`'s [README.md](./kgs/README.md)
+### Usage & Deployment
+
+Check out the following:
+
+-   `server/`'s [README.md](./server/README.md)
+-   `kgs/`'s [README.md](./kgs/README.md)
 
 ### Creating KV
 
@@ -38,12 +54,11 @@ wrangler kv:namespace create "KEY_DB" --preview
 
 For creating these KV namespaces, remember to update your `wrangler.toml` files of the respective service to include the namespace bindings accordingly.
 
-### CI/CD
+## Optional: CI/CD
 
-Create and add the following under the repository secrets:
+1. This project uses [Wrangler actions](https://github.com/marketplace/actions/deploy-to-cloudflare-workers-with-wrangler) to automatically publish worker. To do so, add `CF_API_TOKEN` into your GitHub repository secrets. You can [create your API token](https://dash.cloudflare.com/profile/api-tokens) using the `Edit Cloudflare Workers` template.
 
-- [`NPM_TOKEN`](https://docs.npmjs.com/creating-and-viewing-access-tokens)
-- [`CF_API_TOKEN`](https://developers.cloudflare.com/api/tokens/create/)
+2. This project also uses [semantic-release](https://github.com/semantic-release/npm) to automatically publish to NPM. To enable this, you will need to create a `NPM_TOKEN` via [npm create token](https://docs.npmjs.com/getting-started/working_with_tokens#how-to-create-new-tokens) and add it to your GitHub repository secrets.
 
 ## Contributing
 
