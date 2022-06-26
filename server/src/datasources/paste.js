@@ -30,21 +30,24 @@ class PasteAPI {
     
     Fetch a new `uuid` key from `KEY_DB`.
 
-    UUID is then removed from `KEY_DB` to avoid duplicates.
+    The `uuid` is then deleted from `KEY_DB` to avoid duplicates.
+
+    Note that `KEY_DB.list` changes may take up to 60 seconds to be visible.
     */
     async createPaste(content) {
         /* eslint-disable no-undef */
         try {
-            const { keys } = await KEY_DB.list({ limit: 1 })
+            const { keys } = await KEY_DB.list({ limit: 1000 })
             if (!keys.length) {
                 throw new ApolloError('Ran out of keys')
             }
-            const { name: uuid } = keys[0]
+            const randomInt = Math.floor(Math.random() * keys.length) // 0.1% chance of getting the same key
+            const { name: uuid } = keys[randomInt]
 
             const createdOn = moment().format()
             const expireAt = moment().add(ONE_DAY_FROM_NOW, 'seconds').format()
 
-            await KEY_DB.delete(uuid) // Remove key from KGS
+            await KEY_DB.delete(uuid)
             await PASTE_DB.put(uuid, content, {
                 metadata: { createdOn, expireAt },
                 expirationTtl: ONE_DAY_FROM_NOW,
