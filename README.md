@@ -1,14 +1,40 @@
 <h1 align="center"><strong>Paste Story</strong></h1>
 
+```mermaid
+flowchart TD
+  api_clients([API Clients])
+  browser([Browser])
+
+  server(<a href='https://developers.cloudflare.com/workers/'>API Server</a>):::cf
+  kgs(<a href='https://developers.cloudflare.com/workers/'>Key Generation Service</a>):::cf
+  key_db[(<a href='https://developers.cloudflare.com/workers/runtime-apis/kv/'>KEY_DB</a>)]:::cf
+  paste_db[(<a href='https://developers.cloudflare.com/workers/runtime-apis/kv/'>PASTE_DB</a>)]:::cf
+
+  classDef cf stroke:#FFC500,stroke-width:2px
+
+  subgraph Cloudflare
+    server
+    kgs
+    key_db
+    paste_db
+  end
+
+  key_db <--> server
+  kgs <--> key_db
+  server <--> api_clients
+  server <--> browser
+  paste_db <--> server
+```
+
 Paste Story is a [Pastebin](https://pastebin.com/) clone — a web service that allows users to share text content through a link known as 'pastes'.
 
 “Why Pastebin?” you might ask. Well, sending 50 lines long block of text through a chat app isn’t exactly the best way to communicate.
 
 [Read more...](https://jerrynsh.com/how-to-build-a-pastebin-clone-for-free/)
 
-## Overview
+## Table of Contents
 
-- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
 - [Requirements](#requirements)
 - [Setup](#setup)
   - [Installation](#installation)
