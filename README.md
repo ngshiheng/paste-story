@@ -1,5 +1,8 @@
 <h1 align="center"><strong>Paste Story</strong></h1>
 
+> **NOTE**
+> This project uses `wrangler@v1.x.x`. `wrangler@v2.x.x` was released 1st May 2022, check out the comparison [here](https://developers.cloudflare.com/workers/wrangler/compare-v1-v2/).
+
 ```mermaid
 flowchart TD
   api_clients([API Clients])
